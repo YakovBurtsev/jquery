@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+        function hideComments() {
+            $("#comments").hide(1000, function () {
+                $("#hide").hide();
+                $("#show").show();
+            });
+        }
+        function showComments() {
+            $("#show").hide();
+            $("#hide").show();
+            $("#comments").show(1000);
+        }
+
+        $(document).ready(function () {
+            $("#hide").bind("click", hideComments);
+            $("#show").bind("click", showComments);
+
+            $(document).on("click", "#add_comment", function () {
+                let form = $("form[name='form']");
+                form.css("display", "block");
+                $("#add_comment").replaceWith(form);
+            });
+            $(document).on("click", "input[name='send']", function () {
+                let comment = $("textarea[name='comment']").val();
+                //alert("Подождите идет загрузка комментариев ...");
+                $("<p>" + comment + "</p>").appendTo("#comments");
+            });
+        });
+    </script>
+</head>
+<body>
+
+<a href="#" id="hide" onclick="return false">Скрыть комменты</a>
+<a href="#" id="show" style="display:none" onclick="return false">Показать комменты</a>
+<br/>
+<div id="comments">
+    <p>Коммент 1</p>
+    <p>Коммент 2</p>
+    <p>Коммент 3</p>
+</div>
+
+<form name="form" id="form" action="#" method="post" style="display:none" onsubmit="return false">
+    <label for="textarea">Введите ваш коммент:</label> <br/>
+    <textarea id="textarea" name="comment" cols="30" rows="10"></textarea><br/>
+    <input type="submit" name="send" value="Добавить коммент" id="done">
+</form>
+
+<a href="#" onclick="return false" id="add_comment">Добавить коммент</a>
+</body>
+</html>
