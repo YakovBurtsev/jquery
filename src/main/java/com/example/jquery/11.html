@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<img src="1.jpg" alt="Изображение" title="Изображение"/> <br/>
+<img src="2.jpg"/> <br/>
+<img src="3.jpg"/> <br/>
+<img src="4.jpg" alt="Изображение" title="Изображение"/> <br/>
+
+<script type="text/javascript">
+    $(":not(img[alt])").attr("alt", "jQuery");
+    //        $("img").not("img[alt]")
+    let elements = $("img");
+    let text = "";
+    for (let i = 0; i < elements.length; i++) {
+        text += elements[i].alt + "\n";
+    }
+    alert(text);
+</script>
+</body>
+</html>
