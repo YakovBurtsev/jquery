@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    <script src="jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#addBlock").click(function () {
+                let randName = GetNumber(1, 700);
+                $('#blocks').prepend("<div class='block " + randName + "'>" + randName + "</div>");
+                $('.' + randName).css("background", "#" + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9) + GetNumber(0, 9));
+            });
+
+            function GetNumber(min, max) {
+                return Math.floor(Math.random() * (max - min)) + min;
+            }
+        })
+    </script>
+    <style>
+        .block {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<button id="addBlock">Добавить блок</button>
+<br/>
+<br/>
+<div id="blocks"></div>
+</body>
+</html>
