@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JQuery</title>
+    <script src="jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#img").bind("click", function (event) {
+                $(event.target).parent().css("text-align", "center");
+                $(event.target).animate({
+                    width: $(event.target).width() * 3,
+                    height: $(event.target).height() * 3,
+                }, 3000)
+            })
+        })
+    </script>
 </head>
 <body>
-
+<p id="test">
+    <img src="http://lfly.ru/wp-content/uploads/2017/03/93479224.jpg" id="img" alt="picture" title="picture"
+         width="300"/>
+</p>
 </body>
 </html>
