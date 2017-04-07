@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery</title>
+    <script src="jquery-3.2.0.min.js"></script>
+</head>
+<body>
+<div class="test">test 1</div>
+<div class="test">test 2</div>
+<p class="test">test 3</p>
+
+<script type="text/javascript">
+    let test;
+
+    test = $('.test');
+    for (let t of test) {
+        t.style.color = "blue";
+    }
+
+    test = $('div.test');
+    for (let t of test) {
+        t.style.color = "red";
+    }
+
+    setTimeout("$('p.test').get(0).style.color = 'yellow'", 2000);
+
+</script>
+</body>
+</html>
